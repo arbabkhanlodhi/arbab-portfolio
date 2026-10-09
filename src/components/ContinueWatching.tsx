@@ -8,7 +8,7 @@ import { EASE, RevealText } from './fx';
 import { PosterBackdrop } from './Poster';
 import { RailButtons } from './Rail';
 
-const GLYPHS: Record<SectionId, string> = { about: 'S', journey: 'S01', originals: '3', picks: '10', skills: '{ }', moments: '★', story: 'CV' };
+const GLYPHS: Record<SectionId, string> = { about: 'A', journey: 'S01', originals: '3', picks: '10', skills: '{ }', moments: '★', story: 'CV' };
 
 export default function ContinueWatching({ order }: { order: SectionId[] }) {
   const progress = useWatchProgress();
@@ -18,7 +18,7 @@ export default function ContinueWatching({ order }: { order: SectionId[] }) {
   const rail = useRef<HTMLDivElement>(null);
 
   return (
-    <section aria-labelledby="continue-title" className="relative z-10 -mt-10 pb-10 sm:-mt-16">
+    <section aria-labelledby="continue-title" className="relative z-10 pb-10">
       <div className="gutter mb-4 flex items-end justify-between">
         <RevealText as="h2" text="Continue Exploring" className="font-sans text-lg font-semibold tracking-tight text-bone sm:text-2xl" />
         <span className="hidden text-xs text-smoke sm:block">Progress shows what you&apos;ve watched so far</span>
