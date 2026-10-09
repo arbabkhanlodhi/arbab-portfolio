@@ -33,7 +33,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
         The Next Episode
       </motion.p>
       <motion.h2
-        className="relative font-display leading-[0.85] text-bone"
+        className="relative whitespace-nowrap font-display leading-[0.85] text-bone"
         style={{ fontSize: 'clamp(3.4rem, 13vw, 12rem)', letterSpacing: spacing, filter: blur, opacity }}
       >
         TO BE CONTINUED…
