@@ -37,7 +37,7 @@ export const education = [
     place: 'Islamabad',
     degree: 'B.E. Mechatronics Engineering',
     period: '2025 – Present',
-    score: '3rd Semester • PEEF COE Scholarship',
+    score: '3rd Semester',
   },
   {
     school: 'Higher Secondary School Certificate',
