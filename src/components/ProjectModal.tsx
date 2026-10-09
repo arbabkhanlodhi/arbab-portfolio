@@ -91,20 +91,58 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               {project.logline}
             </motion.p>
 
-            {project.github && (
+            {(project.github || project.report) && (
               <motion.div variants={block} className="mt-6 flex flex-wrap gap-3">
-                <Magnetic>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    data-cursor="link"
-                    className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
-                  >
-                    GitHub ↗
-                  </a>
-                </Magnetic>
+                {project.report && (
+                  <Magnetic>
+                    <a
+                      href={project.report}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-cursor="link"
+                      className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
+                    >
+                      View Report ↗
+                    </a>
+                  </Magnetic>
+                )}
+                {project.github && (
+                  <Magnetic>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-cursor="link"
+                      className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
+                    >
+                      GitHub ↗
+                    </a>
+                  </Magnetic>
+                )}
               </motion.div>
+            )}
+
+            {/* build gallery */}
+            {(project.images?.length || project.video) && (
+              <motion.section variants={block} className="mt-10">
+                <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Build Gallery</h3>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {project.images?.map((src) => (
+                    <div key={src} className="overflow-hidden rounded-xl ring-1 ring-white/10">
+                      <img src={src} alt={`${project.title} build photo`} loading="lazy" className="h-full w-full object-cover" />
+                    </div>
+                  ))}
+                  {project.video && (
+                    <video
+                      src={project.video}
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className="w-full rounded-xl ring-1 ring-white/10 sm:col-span-2"
+                    />
+                  )}
+                </div>
+              </motion.section>
             )}
 
             {/* impact */}

@@ -76,12 +76,6 @@ export type Project = {
   metrics: Metric[];
   /** Omit when the repository isn't public — the GitHub button is hidden instead of linking to a 404. */
   github?: string;
-  /** Path to the project report PDF under /assets — a "View Report" button appears in the modal. */
-  report?: string;
-  /** Photos shown in the project modal, paths under /assets. */
-  images?: string[];
-  /** Optional demo video (mp4) shown in the project modal, path under /assets. */
-  video?: string;
   palette: Palette;
   motif: 'shield' | 'flow' | 'tenants';
 };
@@ -126,8 +120,6 @@ export const projects: Project[] = [
       'Motion simulation',
     ],
     metrics: [],
-    report: '/assets/robot-gripper-report.pdf',
-    images: ['/assets/robot-gripper.png'],
     palette: { from: '#24060b', via: '#6e0d1d', to: '#09070a', accent: '#ff3d5a' },
     motif: 'shield',
   },
@@ -149,9 +141,6 @@ export const projects: Project[] = [
       'Tested with lab equipment',
     ],
     metrics: [],
-    report: '/assets/rlc-filter-report.pdf',
-    images: ['/assets/rlc-veroboard.jpg'],
-    video: '/assets/rlc-demo.mp4',
     palette: { from: '#04121f', via: '#0f4c6e', to: '#05080d', accent: '#4cc9ff' },
     motif: 'tenants',
   },
