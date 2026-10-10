@@ -179,11 +179,18 @@ export const achievements: Achievement[] = [
 export type Certification = { issuer: string; name: string; link: string };
 
 export const certifications: Certification[] = [
-  { issuer: 'Microsoft & LinkedIn', name: 'Career Essentials in Generative AI', link: '' },
-  { issuer: 'Kaggle', name: 'Intro to Machine Learning', link: '' },
-  { issuer: 'NASA', name: 'Open Science 101 & Open Science Essentials', link: '' },
-  { issuer: 'Siemens Mobility', name: 'Project Manager Job Simulation', link: '' },
-  { issuer: 'Deloitte Australia', name: 'Cyber, Data Analytics & Technology Job Simulations', link: '' },
+  { issuer: 'Microsoft & LinkedIn', name: 'Career Essentials in Generative AI', link: '/assets/cert-microsoft-genai.pdf' },
+  { issuer: 'Kaggle', name: 'Intro to Machine Learning', link: '/assets/cert-kaggle-ml.pdf' },
+  { issuer: 'Anthropic', name: 'Claude 101', link: '/assets/cert-anthropic-claude-101.pdf' },
+  { issuer: 'Anthropic', name: 'Claude Code 101', link: '/assets/cert-anthropic-claude-code-101.pdf' },
+  { issuer: 'Anthropic', name: 'AI Fluency: Framework & Foundations', link: '/assets/cert-anthropic-ai-fluency.pdf' },
+  { issuer: 'NASA', name: 'Open Science 101', link: '/assets/cert-nasa-open-science-101.pdf' },
+  { issuer: 'NASA', name: 'Open Science Essentials', link: '/assets/cert-nasa-open-science-essentials.pdf' },
+  { issuer: 'Forage', name: 'Project Manager Job Simulation – Siemens', link: '/assets/cert-forage-siemens-pm.pdf' },
+  { issuer: 'Forage', name: 'Technology Job Simulation – Deloitte', link: '/assets/cert-forage-deloitte-tech.pdf' },
+  { issuer: 'Forage', name: 'Cyber Job Simulation – Deloitte', link: '/assets/cert-forage-deloitte-cyber.pdf' },
+  { issuer: 'Forage', name: 'Data Analytics Job Simulation – Deloitte', link: '/assets/cert-forage-deloitte-data.pdf' },
+  { issuer: 'Allah Wale Foundation', name: 'Summer Internship Program 2026', link: '/assets/cert-awf-internship.pdf' },
 ];
 
 export type Skill = { name: string; mono: string; note?: string };
