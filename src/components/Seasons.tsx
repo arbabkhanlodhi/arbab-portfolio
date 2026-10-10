@@ -1,11 +1,11 @@
 import { useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { seasons } from '../data/portfolio';
+import { seasons, type Project } from '../data/portfolio';
 import { EASE, SectionHeading } from './fx';
 import EpisodeCard from './EpisodeCard';
 import { RailButtons } from './Rail';
 
-export default function Seasons() {
+export default function Seasons({ onOpen }: { onOpen: (p: Project) => void }) {
   const [active, setActive] = useState(seasons.length - 2);
   const season = seasons[active];
   const rail = useRef<HTMLDivElement>(null);
@@ -61,7 +61,7 @@ export default function Seasons() {
           <div className="group/rail relative">
             <div ref={rail} className="rail gutter flex snap-x snap-mandatory gap-4 overflow-x-auto py-8 [perspective:1200px]">
               {season.episodes.map((e, i) => (
-                <EpisodeCard key={e.code} episode={e} index={i} />
+                <EpisodeCard key={e.code} episode={e} index={i} onOpen={onOpen} />
               ))}
             </div>
             <RailButtons rail={rail} />

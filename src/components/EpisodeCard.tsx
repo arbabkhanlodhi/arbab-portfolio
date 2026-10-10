@@ -1,10 +1,19 @@
 import { motion } from 'framer-motion';
-import type { Episode } from '../data/portfolio';
+import { projects, type Episode, type Project } from '../data/portfolio';
 import { EASE, Tilt } from './fx';
 import { PosterBackdrop } from './Poster';
 
-export default function EpisodeCard({ episode, index }: { episode: Episode; index: number }) {
+export default function EpisodeCard({ episode, index, onOpen }: { episode: Episode; index: number; onOpen: (p: Project) => void }) {
   const [season, ep] = episode.code.split(' ');
+  const linked = episode.projectId ? projects.find((p) => p.id === episode.projectId) : undefined;
+  const handlePlay = () => {
+    if (linked) {
+      onOpen(linked);
+    } else if (episode.scrollTo) {
+      document.getElementById(episode.scrollTo)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+  const clickable = linked || episode.scrollTo;
   return (
     <motion.article
       className="w-[80vw] shrink-0 snap-start sm:w-[52vw] md:w-[38vw] lg:w-[30vw] xl:w-[26vw]"
@@ -29,9 +38,20 @@ export default function EpisodeCard({ episode, index }: { episode: Episode; inde
           <div className="flex flex-1 flex-col p-4">
             <div className="mb-2 flex items-center justify-between text-[11px] text-smoke">
               <span className="font-semibold text-mist">{episode.runtime}</span>
-              <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/20 text-[10px] text-bone transition group-hover:border-bone group-hover:bg-bone group-hover:text-ink">
-                ▶
-              </span>
+              {clickable ? (
+                <button
+                  type="button"
+                  onClick={handlePlay}
+                  aria-label={linked ? `Open ${linked.title} project` : `Go to ${episode.title} section`}
+                  className="flex h-7 w-7 items-center justify-center rounded-full border border-white/20 text-[10px] text-bone transition group-hover:border-bone group-hover:bg-bone group-hover:text-ink hover:!bg-crimson-2 hover:!border-crimson-2 hover:!text-white"
+                >
+                  ▶
+                </button>
+              ) : (
+                <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/20 text-[10px] text-bone transition group-hover:border-bone group-hover:bg-bone group-hover:text-ink">
+                  ▶
+                </span>
+              )}
             </div>
             <p className="text-sm leading-relaxed text-bone/80">{episode.description}</p>
             <div className="mt-auto flex flex-wrap gap-1.5 pt-4">

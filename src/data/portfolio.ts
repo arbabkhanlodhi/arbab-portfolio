@@ -294,6 +294,8 @@ export type Episode = {
   tags: string[];
   runtime: string;
   palette: Palette;
+  projectId?: string;
+  scrollTo?: string;
 };
 
 export type Season = {
@@ -324,6 +326,7 @@ export const seasons: Season[] = [
         tags: ['NUST', 'Mechatronics', 'EME'],
         runtime: 'Semester 1',
         palette: amber,
+        scrollTo: 'about',
       },
       {
         code: 'S01 E02',
@@ -332,6 +335,7 @@ export const seasons: Season[] = [
         tags: ['AutoCAD', 'Robot Gripper', 'Team Project'],
         runtime: 'Semester 1',
         palette: crimson,
+        projectId: 'robot-gripper',
       },
     ],
   },
@@ -348,6 +352,7 @@ export const seasons: Season[] = [
         tags: ['RLC Filter', 'Veroboard', 'Team Project'],
         runtime: 'Semester 2',
         palette: ocean,
+        projectId: 'rectifier-rlc-filter',
       },
       {
         code: 'S02 E02',
@@ -356,6 +361,7 @@ export const seasons: Season[] = [
         tags: ['ESP8266', 'IoT', 'Team Project'],
         runtime: 'Semester 2',
         palette: jade,
+        projectId: 'smart-home-automation',
       },
     ],
   },
