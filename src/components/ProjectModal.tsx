@@ -148,7 +148,10 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
             {/* impact */}
             <motion.section variants={block} className="mt-12">
               <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Result / Impact</h3>
-              <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl bg-white/10 sm:grid-cols-3 lg:grid-cols-5">
+              <div
+                className="grid gap-px overflow-hidden rounded-xl bg-white/10"
+                style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))' }}
+              >
                 {project.metrics.map((m, i) => (
                   <motion.div
                     key={m.label}
